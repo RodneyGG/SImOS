@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import IntroLogo from "./components/IntroLogo";
+import ScrollToTop from "./components/ScrollToTop";
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
 import About from "./components/About";
@@ -8,11 +9,13 @@ import CPU_Scheduling from "./components/CPU_Scheduling";
 import Memory_Management from "./components/MemoryManagement";
 import VirtualMemory from "./components/VirtualMemory";
 import DiskScheduling from "./components/DiskScheduling";
+import Docs from "./components/Docs";
 import "./App.css";
 
 function AppContent() {
   return (
     <div className="app-shell">
+      <ScrollToTop />
       <Navbar />
       <div className="app-page">
         <Routes>
@@ -22,6 +25,7 @@ function AppContent() {
           <Route path="/memory-management" element={<Memory_Management />} />
           <Route path="/virtual-memory" element={<VirtualMemory />} />
           <Route path="/mass-storage" element={<DiskScheduling />} />
+          <Route path="/docs" element={<Docs />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </div>
